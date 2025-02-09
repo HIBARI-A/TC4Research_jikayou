@@ -78,7 +78,13 @@ public class ScanManager {
         if(amount > 1 && (float)rp.getAspectPoolFor(player.getGameProfile().getName(), aspect) >= (float)ModConfig.aspectTotalCap * 1.25F) {
             amount = 1;
         }
-
+        
+    	float amount2 = (amount /= 5);
+    	amount = (int)Math.ceil(amount2);
+    	if (amount2 < 1){
+    		amount = 1;
+    	}
+        
         if(rp.addAspectPool(player.getGameProfile().getName(), aspect, amount)) {
             PacketHandler.INSTANCE.sendTo(new PacketAspectPool(aspect.getTag(), amount, rp.getAspectPoolFor(player.getGameProfile().getName(), aspect)), (EntityPlayerMP)player);
             save = amount;
