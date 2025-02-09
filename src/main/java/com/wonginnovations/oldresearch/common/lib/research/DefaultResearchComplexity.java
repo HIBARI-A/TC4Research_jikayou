@@ -8,6 +8,6 @@ public class DefaultResearchComplexity implements ResearchComplexityGenerator {
     @Override
     public Integer get(EntityPlayer player, String key) {
         int researchCompleted = OldResearch.proxy.getPlayerKnowledge().getResearchCompleted(player.getGameProfile().getName());
-        return Math.floorDiv(researchCompleted, 10) + 1;
+        return Math.floorDiv(researchCompleted, 200) + 1;
     }
 }
